@@ -551,6 +551,15 @@
                 output = new ImageLink(field.value);
                 break;
 
+            case "Group":
+                output = field.value.map(function (el) {
+                    var ret = {};
+                    for (var key in el)
+                        ret[key] = initField(el[key]);
+                    return ret;
+                });
+                break;
+
             default:
                 console.log("Link type not supported: ", field.type);
                 break;
