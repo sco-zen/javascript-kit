@@ -649,6 +649,14 @@
             }
         },
 
+        getGroup: function(field) {
+            var fragment = this.get(field);
+ 
+            if (fragment instanceof Global.Prismic.Fragments.Group) {
+                return fragment;
+            }
+        },
+
         /**
          * Gets the Number field in the current Document object, for further manipulation.
          * Typical use: document.getNumber('product.price').asHtml(ctx.link_resolver).
