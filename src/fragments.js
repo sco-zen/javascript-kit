@@ -552,12 +552,14 @@
                 break;
 
             case "Group":
-                output = field.value.map(function (el) {
+                var blocks = field.value.map(function (el) {
                     var ret = {};
                     for (var key in el)
                         ret[key] = initField(el[key]);
                     return ret;
                 });
+ 
+                output = new Group(undefined, blocks);
                 break;
 
             default:
@@ -582,6 +584,7 @@
         DocumentLink: DocumentLink,
         ImageLink: ImageLink,
         FileLink: FileLink,
+        Group: Group,
         initField: initField
     }
 
